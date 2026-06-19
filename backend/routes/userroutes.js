@@ -10,7 +10,7 @@ import {
   deleteUser,
   getUserById,
   updateUser,
-} from '../controllers/userController.js';
+} from '../controllers/usercontroller.js';
 
 import { protect, admin } from '../middleware/authMiddleware.js';
 
