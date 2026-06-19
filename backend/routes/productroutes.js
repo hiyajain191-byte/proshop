@@ -11,7 +11,7 @@ import {
   getTopProducts, // 👈 ADD THIS
 } from '../controllers/productcontroller.js';
 
-import { protect, admin } from '../middleware/authmiddleware.js';
+import { protect, admin } from '../middleware/authMiddleware.js';
 
 // =====================
 // TOP PRODUCTS ROUTE ⭐
