@@ -1,17 +1,20 @@
 {
-  "description": "eCommerce application build with the MERN stack",
-  "homepage": "https://github.com/bhaktip123-git/proshop-demo#readme",
+  "name": "proshop-demo",
+  "version": "1.0.0",
+  "description": "eCommerce application built with the MERN stack",
+  "homepage": "https://github.com/hiyajain191-byte/proshop#readme",
   "bugs": {
-    "url": "https://github.com/bhaktip123-git/proshop-demo/issues"
+    "url": "https://github.com/hiyajain191-byte/proshop/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bhaktip123-git/proshop-demo.git"
+    "url": "git+https://github.com/hiyajain191-byte/proshop.git"
   },
   "license": "MIT",
-  "author": "Bhakti Panchal",
+  "author": "Hiya Jain",
   "type": "module",
-  "main": "server.js",
+  "main": "backend/server.js",
+
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
@@ -20,27 +23,19 @@
     "data:import": "node backend/seeder.js -i",
     "data:destroy": "node backend/seeder.js -d"
   },
+
   "dependencies": {
-    "@paypal/react-paypal-js": "^10.0.0",
-    "@reduxjs/toolkit": "^2.12.0",
-    "axios": "^1.17.0",
     "bcryptjs": "^3.0.3",
     "colors": "^1.4.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^9.0.3",
+    "express": "^4.18.2",
     "mongoose": "^9.6.3",
-    "multer": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.3.0",
-    "react-toastify": "^9.1.3"
+    "dotenv": "^17.4.2",
+    "cors": "^2.8.5",
+    "cookie-parser": "^1.4.6"
   },
+
   "devDependencies": {
     "concurrently": "^10.0.3",
-    "dotenv": "^17.4.2",
     "nodemon": "^3.1.14"
   }
 }
