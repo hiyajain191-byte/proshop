@@ -1,0 +1,33 @@
+// Round numbers to 2 decimals
+export const addDecimals = (num) => {
+  return (Math.round(num * 100) / 100).toFixed(2)
+}
+
+// Calculate items price
+export const updateCart = (state) => {
+  // Calculate items price
+  state.itemsPrice = state.cartItems.reduce(
+    (acc, item) => acc + item.price * item.qty,
+    0
+  )
+
+  // Shipping price (example rule)
+  state.shippingPrice = state.itemsPrice > 1000 ? 0 : 100
+
+  // Tax (18% example for India GST)
+  state.taxPrice = Number(0.18 * state.itemsPrice)
+
+  // Total price
+  state.totalPrice =
+    Number(state.itemsPrice) +
+    Number(state.shippingPrice) +
+    Number(state.taxPrice)
+
+  // Format to 2 decimals
+  state.itemsPrice = addDecimals(state.itemsPrice)
+  state.shippingPrice = addDecimals(state.shippingPrice)
+  state.taxPrice = addDecimals(state.taxPrice)
+  state.totalPrice = addDecimals(state.totalPrice)
+
+  return state
+}

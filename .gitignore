@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Git folders (IMPORTANT - your issue fix)
+git-*/
+git-20260605T151129Z-3-001/
+
+# Backend uploads (if any)
+uploads/
+
+# Coverage reports
+coverage/
+
+# Misc
+*.pem
