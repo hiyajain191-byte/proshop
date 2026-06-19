@@ -18,6 +18,7 @@
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend/frontened",
+    "build": "npm install --prefix frontend/frontened && npm run build --prefix frontend/frontened",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder.js -i",
     "data:destroy": "node backend/seeder.js -d"

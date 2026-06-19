@@ -18,36 +18,34 @@ dotenv.config();
 
 const app = express();
 
-// DB PATH FIX
+// Path setup
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // CORS
 const allowedOrigins = [
   'http://localhost:3000',
-  process.env.FRONTEND_URL
+  process.env.FRONTEND_URL,
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 
-// BODY
+// Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// COOKIE
+// Cookie Parser
 app.use(cookieParser());
 
-// STATIC FILES
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+// Static Uploads
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// ROUTES
-app.get('/', (req, res) => {
-  res.send('API Running...');
-});
-
+// API Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
@@ -59,11 +57,35 @@ app.get('/api/config/paypal', (req, res) => {
   });
 });
 
-// ERROR HANDLERS
+// ===========================
+// PRODUCTION FRONTEND SERVE
+// ===========================
+if (process.env.NODE_ENV === 'production') {
+  app.use(
+    express.static(
+      path.join(__dirname, '../frontend/frontened/build')
+    )
+  );
+
+  app.get('*', (req, res) => {
+    res.sendFile(
+      path.resolve(
+        __dirname,
+        '../frontend/frontened/build/index.html'
+      )
+    );
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.send('API Running...');
+  });
+}
+
+// Error Middleware
 app.use(notFound);
 app.use(errorHandler);
 
-// START SERVER SAFELY
+// Start Server
 const startServer = async () => {
   try {
     await connectDB();
