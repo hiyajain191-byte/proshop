@@ -125,8 +125,9 @@ const Productscreen = () => {
                   />
                 </ListGroup.Item>
 
+                {/* ✅ FIXED */}
                 <ListGroup.Item>
-                  Price: ₹{product.price}
+                  Price: ${product.price.toFixed(2)}
                 </ListGroup.Item>
 
                 <ListGroup.Item>
@@ -138,8 +139,9 @@ const Productscreen = () => {
             <Col md={3}>
               <Card>
                 <ListGroup variant='flush'>
+                  {/* ✅ FIXED */}
                   <ListGroup.Item>
-                    Price: ₹{product.price}
+                    Price: ${product.price.toFixed(2)}
                   </ListGroup.Item>
 
                   <ListGroup.Item>
